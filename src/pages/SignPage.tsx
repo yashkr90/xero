@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import Divider from "@mui/material/Divider";
 import "./SignupPage.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SignUp from "../components/SignUp";
-import { SignAtom } from "../lib/store";
+import { SignAtom, UserAtom } from "../lib/store";
 import { useAtom } from "jotai";
 import SignIn from "../components/SignIn";
 import { getUser, loginGoogle } from "../api/api.js";
@@ -20,6 +20,33 @@ const SignPage = () => {
       else return "signin";
     });
   };
+
+    const [user, setUser]= useAtom(UserAtom);
+  const navigate=useNavigate();
+  
+
+  useEffect(() => {
+    const getuser = async () => {
+      const userdata = await getUser();
+
+      const firstName = userdata.user.name.givenName;
+      console.log(firstName);
+
+      if(firstName!==undefined){
+        navigate("/dashboard");
+      }
+      else{
+        navigate("/login");
+      }
+
+      setUser((prev)=>{
+        return{...prev, firstName:firstName }
+      });
+
+      console.log(user);
+    };
+    getuser();
+  }, []);
   
 
   const googleLogin = async() => {

@@ -11,13 +11,23 @@ const Home = () => {
   
     useEffect(() => {
       const getuser = async () => {
+
+        console.log("inside home");
+        
         const userdata = await getUser();
   
         const firstName = userdata.user.name.givenName;
         console.log(firstName);
   
-        if(firstName!==undefined){
+        if(firstName){
+            console.log("inside");
+            
           navigate("/dashboard");
+        }
+        else{
+            console.log("indeide login");
+            
+            navigate("/login");
         }
   
         setUser((prev)=>{
@@ -30,6 +40,7 @@ const Home = () => {
     }, []);
   return (
     <>
+
     </>
   )
 }

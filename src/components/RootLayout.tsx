@@ -9,28 +9,31 @@ import { getUser } from "../api/api.js";
 
 const RootLayout = () => {
 
-  const [user, setUser]= useAtom(UserAtom);
-  const navigate=useNavigate();
+  // const [user, setUser]= useAtom(UserAtom);
+  // const navigate=useNavigate();
 
-  useEffect(() => {
-    const getuser = async () => {
-      const userdata = await getUser();
+  // useEffect(() => {
+  //   const getuser = async () => {
+  //     const userdata = await getUser();
 
-      const firstName = userdata.user.name.givenName;
-      console.log(firstName);
+  //     const firstName = userdata.user.name.givenName;
+  //     console.log(firstName);
 
-      // if(firstName!==undefined){
-      //   navigate("/dashboard");
-      // }
+  //     if(firstName!==undefined){
+  //       navigate("/dashboard");
+  //     }
+  //     else{
+  //       navigate("/login");
+  //     }
 
-      setUser((prev)=>{
-        return{...prev, firstName:firstName }
-      });
+  //     setUser((prev)=>{
+  //       return{...prev, firstName:firstName }
+  //     });
 
-      console.log(user);
-    };
-    getuser();
-  }, []);
+  //     console.log(user);
+  //   };
+  //   getuser();
+  // }, []);
 
  
   // console.log(location);

@@ -37,6 +37,11 @@ const LandingPage = () => {
       console.log(user);
     };
     getuser();
+
+    if (user.firstName==null) {
+      navigate("/login")
+    }
+    
   }, []);
 
   useEffect(() => {
@@ -46,7 +51,7 @@ const LandingPage = () => {
       navigate("/login")
     }
 
-  },[user])
+  },[])
 
   return (
     <Dashboard >
