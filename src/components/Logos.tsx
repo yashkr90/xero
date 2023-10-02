@@ -1,6 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-const Logos = ({imgsrc,width,height,bordercol, bgcolor}) => {
+interface LogosProps {
+  imgsrc: string;
+  width: string;
+  height: string;
+  bordercol: string;
+  bgcolor: string;
+}
+const Logos: React.FC<LogosProps>  = ({imgsrc,width,height,bordercol, bgcolor}) => {
   return (
     <div className='flex justify-center items-center'>
     <div className={`flex items-center justify-center rounded-mini ${bgcolor} box-border ${width} ${height} border-[1px] border-solid ${bordercol}`}>

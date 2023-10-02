@@ -1,6 +1,6 @@
 
 import axios from "axios";
-import { useAtom } from "jotai";
+
 
 const URL = import.meta.env.VITE_URL;
 
@@ -8,7 +8,7 @@ console.log(URL);
 
 
 
-export const getme = async (token) => {
+export const getme = async (token:string) => {
   const res = await axios.get(`${URL}/v1/auth/me`, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -54,7 +54,7 @@ export const getUser = async () => {
 
 };
 
-export const signUp = async (data) => {
+export const signUp = async (data:any) => {
   console.log("data api", data);
   const res = await axios.post(`${URL}/v1/auth/signup`, data);
   console.log(res.data);
@@ -62,7 +62,7 @@ export const signUp = async (data) => {
   return res.data;
 };
 
-export const signIn = async (data) => {
+export const signIn = async (data:any) => {
   try {
     console.log("data", data);
     const res = await axios.post(`${URL}/v1/auth/signin`, data);

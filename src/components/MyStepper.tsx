@@ -30,11 +30,11 @@ const MyStepper = () => {
   //   3: false,
   // });
 
-  const handleStateChange = (option, id) => {
+  const handleStateChange = (option:any, id:any) => {
     console.log(option);
     console.log(id);
     // Set the fill state for next step to true to true
-    console.log(stepStates.size);
+    
     const nextid = id < Object.keys(stepStates).length ? id + 1 : id;
     console.log("nextid", nextid);
 
@@ -44,7 +44,7 @@ const MyStepper = () => {
       [nextid]: true,
     }));
 
-    setProgress((prevProgress) => {
+    setProgress(() => {
 
       if(id==1)return 40
       else if(id==2)return 80
@@ -61,7 +61,7 @@ const MyStepper = () => {
         return {...item};
       })
 
-      setDisplayStep((prev)=>{
+      setDisplayStep(()=>{
         return newdisplayStep;
       })
 
@@ -91,14 +91,27 @@ const MyStepper = () => {
   );
 };
 
-const Step = ({
+interface StepProps {
+  id: number;
+  fillHeight: any;
+  stepStates: any;
+  setStepStates: any;
+  handleStateChange: any;
+}
+
+const Step: React.FC<StepProps> = ({
   id,
   fillHeight,
   stepStates,
   setStepStates,
   handleStateChange,
 }) => {
-  const options = {
+  type Options = {
+    [key: number]: string[];
+  };
+  
+  
+  const options:Options = {
     1: ["AWS", "GCP"],
     2: ["Github", "Gitlab", "Bitbucket"],
     3: ["MongoDB", "RedisDB", "Postgresql"],

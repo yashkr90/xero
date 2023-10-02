@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect } from "react";
+import { useEffect } from "react";
 import Switch from "@mui/material/Switch";
 import { getme } from "../api/api.js";
 import { useAtom } from "jotai";
@@ -11,6 +11,7 @@ const Container = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
+      
       const User = await getme(user.token);
       const newuser=User.content.data.firstName;
       setUser(newuser);
@@ -22,7 +23,7 @@ const Container = () => {
   return (
     <div className="w-full flex">
       {/* <div className="absolute top-[171px] left-[1330px] " /> */}
-      <div className="flex w-full justify-between rounded-6xl [background:linear-gradient(180deg,_rgba(211,_230,_255,_0.31),_rgba(231,_241,_255,_0))] box-border w-[1330px] h-[171px] border-[1px] border-solid border-ghostwhite">
+      <div className="flex w-full justify-between rounded-6xl [background:linear-gradient(180deg,_rgba(211,_230,_255,_0.31),_rgba(231,_241,_255,_0))] box-border  h-[171px] border-[1px] border-solid border-ghostwhite">
         <div className="flex flex-col justify-center items-center">
           <div className=" font-extrabold flex items-center text-7xl text-gray-300 font-nunito">
             Hi {user.firstName ? `${user.firstName}` : ""} !
