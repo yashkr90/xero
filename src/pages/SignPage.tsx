@@ -35,9 +35,9 @@ const SignPage = () => {
       if(firstName!==undefined){
         navigate("/dashboard");
       }
-      else{
-        navigate("/login");
-      }
+      // else{
+      //   navigate("/login");
+      // }
 
       setUser((prev)=>{
         return{...prev, firstName:firstName }
