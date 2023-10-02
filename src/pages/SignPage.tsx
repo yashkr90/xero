@@ -32,7 +32,7 @@ const SignPage = () => {
       const firstName = userdata.user.name.givenName;
       console.log(firstName);
 
-      if(firstName!==undefined){
+      if(firstName){
         navigate("/dashboard");
       }
       // else{
