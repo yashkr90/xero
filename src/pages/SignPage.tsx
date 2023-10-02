@@ -21,9 +21,8 @@ const SignPage = () => {
     });
   };
 
-    const [user, setUser]= useAtom(UserAtom);
-  const navigate=useNavigate();
-  
+  const [user, setUser] = useAtom(UserAtom);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getuser = async () => {
@@ -32,30 +31,32 @@ const SignPage = () => {
       const firstName = userdata.user.name.givenName;
       console.log(firstName);
 
-      if(firstName){
-        navigate("/dashboard");
-      }
       // else{
       //   navigate("/login");
       // }
 
-      setUser((prev)=>{
-        return{...prev, firstName:firstName }
+      setUser((prev) => {
+        return { ...prev, firstName: firstName };
       });
 
       console.log(user);
+
+      if (firstName) {
+        navigate("/dashboard");
+      }
     };
     getuser();
   }, []);
-  
 
-  const googleLogin = async() => {
+  useEffect(() => {
+    if (user.firstName) {
+      navigate("/dashboard");
+    }
+  }, [user]);
 
+  const googleLogin = async () => {
     await loginGoogle();
-
-    
-  
-}
+  };
 
   return (
     <div className="hero">
@@ -86,7 +87,7 @@ const SignPage = () => {
               <div className="self-center">OR</div>
               <div className="flex justify-between items-center ">
                 <Button
-                onClick={googleLogin}
+                  onClick={googleLogin}
                   sx={{
                     borderColor: "#c0c0c0",
                     padding: "10px",
