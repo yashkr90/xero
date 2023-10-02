@@ -43,7 +43,7 @@ const LandingPage = () => {
     console.log(user);
 
     if (user.firstName==null) {
-      navigate("/")
+      navigate("/login")
     }
 
   },[user])

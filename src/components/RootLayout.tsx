@@ -19,9 +19,9 @@ const RootLayout = () => {
       const firstName = userdata.user.name.givenName;
       console.log(firstName);
 
-      if(firstName!==undefined){
-        navigate("/dashboard");
-      }
+      // if(firstName!==undefined){
+      //   navigate("/dashboard");
+      // }
 
       setUser((prev)=>{
         return{...prev, firstName:firstName }
@@ -32,7 +32,7 @@ const RootLayout = () => {
     getuser();
   }, []);
 
-  const location=useLocation();
+ 
   // console.log(location);
   return (
     <>
