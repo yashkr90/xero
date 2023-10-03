@@ -8,7 +8,7 @@ import SignUp from "../components/SignUp";
 import { SignAtom, UserAtom } from "../lib/store";
 import { useAtom } from "jotai";
 import SignIn from "../components/SignIn";
-import { getUser, loginGoogle } from "../api/api.js";
+import { getUser, loginGithub, loginGoogle } from "../api/api.ts";
 
 const imageURL = "/image7.png";
 const SignPage = () => {
@@ -57,6 +57,9 @@ const SignPage = () => {
   const googleLogin = async () => {
     await loginGoogle();
   };
+  const githubLogin = async () => {
+    await loginGithub();
+  };
 
   return (
     <div className="hero">
@@ -99,6 +102,7 @@ const SignPage = () => {
                   </span>
                 </Button>
                 <Button
+                onClick={githubLogin}
                   sx={{
                     borderColor: "#c0c0c0",
                     padding: "10px",

@@ -77,3 +77,8 @@ export const signIn = async (data:any) => {
 export const loginGoogle = async () => {
   window.open(`${URL}/auth/google`, "_self");
 };
+
+export const loginGithub = async () => {
+  window.open(`${URL}/auth/github`, "_self");
+};
+
