@@ -35,23 +35,25 @@ const LandingPage = () => {
       });
 
       console.log(user);
+
+      // if (firstName==undefined) {
+      //   navigate("/")
+      // }
     };
     getuser();
 
-    if (user.firstName==null) {
-      navigate("/login")
-    }
+   
     
   }, []);
 
-  useEffect(() => {
-    console.log(user);
+  // useEffect(() => {
+  //   console.log(user);
 
-    if (user.firstName==null) {
-      navigate("/")
-    }
+  //   if (user.firstName==null) {
+  //     navigate("/")
+  //   }
 
-  },[])
+  // },[])
 
   return (
     <Dashboard >
